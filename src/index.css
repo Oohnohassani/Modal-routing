@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* removes the WHOLE scrollbar box: track + thumb + buttons */
+  }
+  .scrollbar-hide {
+    scrollbar-width: none; /* Firefox: removes everything too */
+    -ms-overflow-style: none; /* old Edge/IE */
+  }
+}

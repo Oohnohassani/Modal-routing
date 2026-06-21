@@ -1,0 +1,247 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "username": "Alan Baker",
+      "postImg": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=800&auto=format&fit=crop",
+      "post": "A camera passed down from my dad in the '90s—still capturing memories, one frame at a time. #Photography #VintageCamera #Film",
+      "userImg": "https://i.pravatar.cc/300?img=12",
+      "postDate": "7 minutes ago",
+      "verified": true,
+      "postLikes": 10,
+      "postBookmarks": 230,
+      "postComments": 3006,
+      "postLiked": true
+    },
+    {
+      "id": "2",
+      "username": "Brian Sky",
+      "postImg": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=800&auto=format&fit=crop",
+      "post": "Golden hour hits different when you’re chasing light instead of time. #GoldenHour #Photography #Sunset",
+      "userImg": "https://i.pravatar.cc/300?img=5",
+      "postDate": "1 day ago",
+      "verified": true,
+      "postLikes": 1,
+      "postBookmarks": 940,
+      "postComments": 5200,
+      "postLiked": false
+    },
+    {
+      "id": "3",
+      "username": "Maya Lens",
+      "postImg": "https://images.unsplash.com/photo-1636142241657-0aee4b7855ad?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "post": "Street lights, rainy nights, and quiet stories you only notice when you slow down. #StreetPhotography #RainyDays",
+      "userImg": "https://i.pravatar.cc/300?img=32",
+      "postDate": "3 hours ago",
+      "verified": false,
+      "postLikes": 8398,
+      "postBookmarks": 310,
+      "postComments": 1200,
+      "postLiked": false
+    },
+    {
+      "id": "4",
+      "username": "Chris Frame",
+      "postImg": "https://images.unsplash.com/photo-1602126282340-9f597c2f31ab?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "post": "Mountains don’t rush, and neither should you. #NaturePhotography #Wanderlust #Mountains",
+      "userImg": "https://i.pravatar.cc/300?img=8",
+      "postDate": "2 days ago",
+      "verified": true,
+      "postLikes": 22300,
+      "postBookmarks": 1500,
+      "postComments": 6100,
+      "postLiked": true
+    },
+    {
+      "id": "5",
+      "username": "Ella Bright",
+      "postImg": "https://images.unsplash.com/photo-1692556214841-a4a92f7d3f49?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "post": "Film grain, soft light, and imperfect moments—that’s the beauty of analog. #FilmPhotography #AnalogLove",
+      "userImg": "https://i.pravatar.cc/300?img=25",
+      "postDate": "5 hours ago",
+      "verified": false,
+      "postLikes": 9105,
+      "postBookmarks": 410,
+      "postComments": 980,
+      "postLiked": true
+    },
+    {
+      "id": "6",
+      "username": "Noah Capture",
+      "postImg": "https://images.unsplash.com/photo-1764617129854-a4c68b2448d9?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "post": "Every face tells a story—you just need to look long enough to hear it. #PortraitPhotography #HumanStories",
+      "userImg": "https://i.pravatar.cc/300?img=15",
+      "postDate": "10 minutes ago",
+      "verified": true,
+      "postLikes": 15400,
+      "postBookmarks": 620,
+      "postComments": 3400,
+      "postLiked": true
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "postId": 1,
+      "username": "Jane Slow 🐌",
+      "userImg": "https://i.pravatar.cc/300?img=1",
+      "comment": "This is such a nostalgic shot! 🌿",
+      "createdAt": "8 minutes ago",
+      "verified": true
+    },
+    {
+      "id": "2",
+      "postId": 1,
+      "username": "Mike Bosnier",
+      "userImg": "https://i.pravatar.cc/300?img=2",
+      "comment": "Love the film vibes 🔥",
+      "createdAt": "2 hours ago",
+      "verified": true
+    },
+    {
+      "id": "3",
+      "postId": 2,
+      "username": "Lina Sun",
+      "userImg": "https://i.pravatar.cc/300?img=3",
+      "comment": "Golden hour never disappoints 😍",
+      "createdAt": "30 minutes ago",
+      "verified": false
+    },
+    {
+      "id": "4",
+      "postId": 2,
+      "username": "Ethan Ray",
+      "userImg": "https://i.pravatar.cc/300?img=4",
+      "comment": "This lighting is insane 🔥",
+      "createdAt": "1 hour ago",
+      "verified": true
+    },
+    {
+      "id": "5",
+      "postId": 3,
+      "username": "Mia Noir",
+      "userImg": "https://i.pravatar.cc/300?img=5",
+      "comment": "Rainy street shots always hit different 🌧️",
+      "createdAt": "20 minutes ago",
+      "verified": false
+    },
+    {
+      "id": "6",
+      "postId": 3,
+      "username": "Noah Lens",
+      "userImg": "https://i.pravatar.cc/300?img=6",
+      "comment": "Feels like a movie scene 🎬",
+      "createdAt": "2 hours ago",
+      "verified": true
+    },
+    {
+      "id": "7",
+      "postId": 4,
+      "username": "Olivia Peak",
+      "userImg": "https://i.pravatar.cc/300?img=7",
+      "comment": "Mountains really calm the soul 🏔️",
+      "createdAt": "3 hours ago",
+      "verified": true
+    },
+    {
+      "id": "8",
+      "postId": 4,
+      "username": "James Trail",
+      "userImg": "https://i.pravatar.cc/300?img=8",
+      "comment": "I need to visit this place!",
+      "createdAt": "5 hours ago",
+      "verified": false
+    },
+    {
+      "id": "9",
+      "postId": 5,
+      "username": "Ella Grain",
+      "userImg": "https://i.pravatar.cc/300?img=9",
+      "comment": "Film photography hits different 🎞️",
+      "createdAt": "1 hour ago",
+      "verified": true
+    },
+    {
+      "id": "10",
+      "postId": 5,
+      "username": "Lucas Frame",
+      "userImg": "https://i.pravatar.cc/300?img=10",
+      "comment": "That soft light is perfect ✨",
+      "createdAt": "2 hours ago",
+      "verified": false
+    },
+    {
+      "id": "11",
+      "postId": 6,
+      "username": "Ava Portrait",
+      "userImg": "https://i.pravatar.cc/300?img=11",
+      "comment": "Every face really does tell a story 💭",
+      "createdAt": "10 minutes ago",
+      "verified": true
+    },
+    {
+      "id": "12",
+      "postId": 6,
+      "username": "Daniel Focus",
+      "userImg": "https://i.pravatar.cc/300?img=12",
+      "comment": "This is powerful storytelling 📸",
+      "createdAt": "1 hour ago",
+      "verified": true
+    },
+    {
+      "comment": "Hey I really like your account ❣️",
+      "id": "MEPSOXf7IPw",
+      "postId": "1",
+      "username": "Taylor Lee",
+      "userImg": "https://i.pravatar.cc/300?img=48",
+      "createdAt": "28 minutes ago",
+      "verified": true
+    },
+    {
+      "comment": "Ikr! Golden hour hits different when you’re chasing light lol ✌️😁",
+      "id": "8HF_QH4qU9o",
+      "postId": "2",
+      "username": "Sam Brown",
+      "userImg": "https://i.pravatar.cc/300?img=23",
+      "createdAt": "31 minutes ago",
+      "verified": true
+    },
+    {
+      "comment": "What do you \"...you just need to look long enough\"? I don't want to be labelled as a \"creep\" 💀? ",
+      "id": "wr9dk3jylcQ",
+      "postId": "6",
+      "username": "Alex Walker",
+      "userImg": "https://i.pravatar.cc/300?img=17",
+      "createdAt": "9 minutes ago",
+      "verified": true
+    },
+    {
+      "comment": "I like the black and white with the grain filter here.",
+      "id": "_iWigzLZAJw",
+      "postId": "3",
+      "username": "Taylor Smith",
+      "userImg": "https://i.pravatar.cc/300?img=47",
+      "createdAt": "10 minutes ago",
+      "verified": true
+    },
+    {
+      "comment": "Late night sessions always hit different...",
+      "id": "S_pxf_EUMbw",
+      "postId": "4",
+      "username": "Jordan Brown",
+      "userImg": "https://i.pravatar.cc/300?img=9",
+      "createdAt": "37 minutes ago",
+      "verified": true
+    },
+    {
+      "comment": "Right, what do we have over here?",
+      "id": "M8QrsTvCspw",
+      "postId": "5",
+      "username": "Sam Brown",
+      "userImg": "https://i.pravatar.cc/300?img=28",
+      "createdAt": "52 minutes ago",
+      "verified": true
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
