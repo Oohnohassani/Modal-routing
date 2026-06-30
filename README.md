@@ -5,6 +5,8 @@
 ![Vite](https://img.shields.io/badge/Vite-Bundler-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
 
+![Preview](./src/assets/modal-routing.png)
+
 ### Overview
 
 This repository contains a workshop project focused on exploring advanced patterns in **React Router v8** through a realistic Instagram-inspired application.
