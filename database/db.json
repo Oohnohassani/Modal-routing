@@ -9,9 +9,10 @@
       "postDate": "7 minutes ago",
       "verified": true,
       "postLikes": 10,
-      "postBookmarks": 230,
+      "postBookmarks": 231,
       "postComments": 3006,
-      "postLiked": true
+      "postLiked": true,
+      "postBookmarked": true
     },
     {
       "id": "2",
@@ -21,10 +22,11 @@
       "userImg": "https://i.pravatar.cc/300?img=5",
       "postDate": "1 day ago",
       "verified": true,
-      "postLikes": 1,
-      "postBookmarks": 940,
+      "postLikes": 2,
+      "postBookmarks": 941,
       "postComments": 5200,
-      "postLiked": false
+      "postLiked": true,
+      "postBookmarked": true
     },
     {
       "id": "3",
@@ -34,10 +36,11 @@
       "userImg": "https://i.pravatar.cc/300?img=32",
       "postDate": "3 hours ago",
       "verified": false,
-      "postLikes": 8398,
-      "postBookmarks": 310,
+      "postLikes": 8399,
+      "postBookmarks": 311,
       "postComments": 1200,
-      "postLiked": false
+      "postLiked": true,
+      "postBookmarked": true
     },
     {
       "id": "4",
@@ -48,9 +51,10 @@
       "postDate": "2 days ago",
       "verified": true,
       "postLikes": 22300,
-      "postBookmarks": 1500,
+      "postBookmarks": 1501,
       "postComments": 6100,
-      "postLiked": true
+      "postLiked": true,
+      "postBookmarked": true
     },
     {
       "id": "5",
@@ -60,10 +64,11 @@
       "userImg": "https://i.pravatar.cc/300?img=25",
       "postDate": "5 hours ago",
       "verified": false,
-      "postLikes": 9105,
-      "postBookmarks": 410,
+      "postLikes": 9104,
+      "postBookmarks": 411,
       "postComments": 980,
-      "postLiked": true
+      "postLiked": false,
+      "postBookmarked": true
     },
     {
       "id": "6",
@@ -77,6 +82,20 @@
       "postBookmarks": 620,
       "postComments": 3400,
       "postLiked": true
+    },
+    {
+      "id": "7",
+      "username": "john_doe",
+      "verified": true,
+      "postDate": "2 hours ago",
+      "userImg": "https://i.pravatar.cc/300?img=8",
+      "postImg": "https://picsum.photos/500/300",
+      "post": "Exploring the beauty of the world one photo at a time. #travel #photography #nature",
+      "postLikes": 143,
+      "postBookmarks": 29,
+      "postComments": 15,
+      "postLiked": true,
+      "postBookmarked": true
     }
   ],
   "comments": [
@@ -189,7 +208,7 @@
       "verified": true
     },
     {
-      "comment": "Hey I really like your account ❣️",
+      "comment": "Hey I really like your account honestly 🫰",
       "id": "MEPSOXf7IPw",
       "postId": "1",
       "username": "Taylor Lee",
@@ -207,7 +226,7 @@
       "verified": true
     },
     {
-      "comment": "What do you \"...you just need to look long enough\"? I don't want to be labelled as a \"creep\" 💀? ",
+      "comment": "What do you mean \"...you just need to look long enough\"? I don't want to be labelled as a \"creep\" 💀? ",
       "id": "wr9dk3jylcQ",
       "postId": "6",
       "username": "Alex Walker",
@@ -240,6 +259,42 @@
       "username": "Sam Brown",
       "userImg": "https://i.pravatar.cc/300?img=28",
       "createdAt": "52 minutes ago",
+      "verified": true
+    },
+    {
+      "id": "VhZ36R0HpKc",
+      "postId": "3",
+      "username": "Maya Lens",
+      "userImg": "https://i.pravatar.cc/300?img=32",
+      "comment": "Hi there 👋",
+      "createdAt": "8 minutes ago",
+      "verified": false
+    },
+    {
+      "id": "7h0EhiFluwY",
+      "postId": "1",
+      "username": "Alan Baker",
+      "userImg": "https://i.pravatar.cc/300?img=12",
+      "comment": "I like the black and white filter here.",
+      "createdAt": "8 minutes ago",
+      "verified": true
+    },
+    {
+      "id": "mnAIVTVzvkY",
+      "postId": "1",
+      "username": "Alan Baker",
+      "userImg": "https://i.pravatar.cc/300?img=12",
+      "comment": "I just realised...this is actually perfect composition wtf 🤯",
+      "createdAt": "8 minutes ago",
+      "verified": true
+    },
+    {
+      "comment": "Hey, what camera did you use for this shot? Asking for a friend 😅",
+      "id": "RkNQFJeadA8",
+      "postId": "1",
+      "username": "Alex Brown",
+      "userImg": "https://i.pravatar.cc/300?img=55",
+      "createdAt": "3 minutes ago",
       "verified": true
     }
   ],

@@ -2,6 +2,8 @@ const url = "http://localhost:5000";
 
 export async function getPosts() {
   try {
+    console.log("📡 FETCHING POSTS");
+
     const res = await fetch(`${url}/posts`);
     if (!res.ok) throw new Error("Failed to fetch posts 😥");
     const data = await res.json();

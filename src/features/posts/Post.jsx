@@ -1,21 +1,17 @@
-import {
-  LuEllipsis,
-  LuHeart,
-  LuMessageCircle, // comments
-  LuBookmark, // bookmark
-  LuShare, // share
-  LuSend,
-  LuArrowUp,
-  LuBadgeCheck,
-} from "react-icons/lu";
+import { LuEllipsis, LuArrowUp, LuBadgeCheck } from "react-icons/lu";
 import Comments from "../comments/Comments";
-import { Link, useFetcher, useNavigate } from "react-router";
-import { addComment, updatePost } from "../../server/postsApi";
+import { useFetcher } from "react-router";
+import { addComment, getPost, updatePost } from "../../server/postsApi";
 import { useState } from "react";
-import { formatNumbers } from "../../utils/helpers";
 import { highlightHashtags } from "./PostViewer";
+import SkeletonLoadingPost from "../../ui/SkeletonLoadingPost";
+import PostStats from "./PostStats";
 
 function Post({ post, comments, isLoadingComments }) {
+  // State 🧠
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Destructuring
   const {
     id,
     username,
@@ -24,23 +20,19 @@ function Post({ post, comments, isLoadingComments }) {
     userImg,
     postDate,
     verified,
-    postLikes,
-    postBookmarks,
-    postComments,
-    postLiked,
+    // postLikes,
+    // postBookmarks,
+    // postComments,
+    // postLiked,
   } = post;
 
-  // Likes state
-  const [liked, setLiked] = useState(postLiked); // true or false
-  const navigate = useNavigate();
-
-  // Fetchers for post stats
-  const likesFetcher = useFetcher();
-  const bookmarkFetcher = useFetcher();
   const commentFetcher = useFetcher();
 
+  // Loading 🔃
+  if (isLoading) return <SkeletonLoadingPost />;
+
   return (
-    <div className="flex w-105 flex-col items-center justify-center gap-2 rounded-lg bg-gray-50 p-3">
+    <div className="flex w-120 flex-col items-center justify-center gap-2 rounded-lg bg-neutral-800 p-3">
       {/* Profile */}
       <div className="flex h-full w-full items-center justify-between gap-2">
         <div className="flex items-center justify-between gap-2">
@@ -50,7 +42,7 @@ function Post({ post, comments, isLoadingComments }) {
 
           <div className="flex flex-col items-start justify-center">
             <div className="flex items-center justify-center gap-1">
-              <h4 className="text-sm font-semibold text-gray-700">
+              <h4 className="text-sm font-semibold text-gray-100">
                 {username}
               </h4>
               <span>
@@ -59,12 +51,12 @@ function Post({ post, comments, isLoadingComments }) {
                 )}
               </span>
             </div>
-            <p className="text-xs text-gray-500">{postDate}</p>
+            <p className="text-xs text-gray-400">{postDate}</p>
           </div>
         </div>
 
         <div>
-          <span className="inline-block rotate-90 cursor-pointer text-gray-600">
+          <span className="inline-block rotate-90 cursor-pointer text-gray-100">
             <LuEllipsis />
           </span>
         </div>
@@ -72,7 +64,7 @@ function Post({ post, comments, isLoadingComments }) {
 
       {/* Content */}
       <div className="my-4">
-        <p className="text-sm text-gray-700">{highlightHashtags(postTxt)}</p>
+        <p className="text-sm text-gray-100">{highlightHashtags(postTxt)}</p>
       </div>
 
       {/* Post Picture */}
@@ -86,71 +78,7 @@ function Post({ post, comments, isLoadingComments }) {
       </div>
 
       {/* Stats */}
-      <div className="mt-2 flex w-full items-center justify-between gap-2 px-2">
-        <div className="flex items-center justify-between gap-2">
-          {/* Likes form */}
-          <likesFetcher.Form method="patch">
-            {/* Hidden inputs to collect data */}
-            <input type="hidden" name="intent" value="like" />
-            <input type="hidden" name="postLikes" value={postLikes} />
-            <input type="hidden" name="id" value={id} />
-            {/* <input type="hidden" name="postLikes" value={postLiked} /> */}
-            <input type="hidden" name="liked" value={liked} />
-
-            <button
-              type="submit"
-              onClick={() => setLiked((like) => !like)} // toggle likes
-              className="flex items-center justify-center gap-1"
-            >
-              <span className="cursor-pointer">
-                <LuHeart
-                  className={`${postLiked && "fill-red-400 stroke-red-400"}`}
-                />
-              </span>
-              <h5 className="text-xs font-semibold text-gray-900">
-                {postLikes > 0 && formatNumbers(postLikes)}
-              </h5>
-            </button>
-          </likesFetcher.Form>
-
-          <div className="flex items-center justify-center gap-1">
-            <span className="cursor-pointer">
-              <Link to={`post/${id}`} state={{ modal: true }}>
-                <LuMessageCircle />
-              </Link>
-            </span>
-            <h5 className="text-xs font-semibold text-gray-900">
-              {formatNumbers(postComments)}
-            </h5>
-          </div>
-
-          <bookmarkFetcher.Form method="patch">
-            {/* Hidden inputs to collect data */}
-            <input type="hidden" name="intent" value="bookmark" />
-            <input type="hidden" name="postBookmarks" value={postBookmarks} />
-            <input type="hidden" name="id" value={id} />
-
-            <button
-              type="submit"
-              className="flex items-center justify-center gap-1"
-            >
-              <span className="cursor-pointer">
-                <LuBookmark className="fill-blue-400 stroke-blue-400" />
-              </span>
-              <h5 className="text-xs font-semibold text-gray-900">
-                {formatNumbers(postBookmarks)}
-              </h5>
-            </button>
-          </bookmarkFetcher.Form>
-        </div>
-
-        <div className="cursor-pointer">
-          <span>
-            {/* <LuShare /> */}
-            <LuSend />
-          </span>
-        </div>
-      </div>
+      <PostStats id={id} post={post} />
 
       {/* Add comment */}
       <commentFetcher.Form
@@ -171,7 +99,7 @@ function Post({ post, comments, isLoadingComments }) {
             type="text"
             name="comment"
             placeholder="Write your comment"
-            className="w-full rounded-full bg-gray-100 px-4 py-1 text-sm text-gray-500 outline outline-gray-200 placeholder:text-sm"
+            className="w-full rounded-full bg-neutral-800 px-4 py-1 text-sm text-gray-400 outline outline-neutral-700 placeholder:text-sm"
             // value={value}
             // onChange={}
           />
@@ -182,16 +110,16 @@ function Post({ post, comments, isLoadingComments }) {
 
         <button
           type="submit"
-          className="flex h-6 w-6 cursor-pointer items-center justify-center rounded-full bg-gray-700 p-1 text-gray-50"
+          className="flex h-6 w-6 cursor-pointer items-center justify-center rounded-full bg-neutral-700 p-1 text-gray-50"
         >
           <LuArrowUp />
         </button>
       </commentFetcher.Form>
 
       {/* Divider */}
-      {comments.length > 0 && (
-        <div className="h-[1px] w-[90%] border-t border-gray-100"></div>
-      )}
+      {/* {comments.length > 0 && (
+        <div className="h-[1px] w-[90%] border-t border-neutral-700"></div>
+      )} */}
 
       {/* Comments */}
       {comments.length > 0 && (
@@ -212,7 +140,6 @@ function getRandomName() {
   return `${first} ${last}`;
 }
 
-// action
 export async function action({ request, params }) {
   // 0. Get the form data
   const formData = await request.formData();
@@ -225,18 +152,18 @@ export async function action({ request, params }) {
 
   // Adding a like
   if (data.intent === "like") {
-    const isCurrentlyLiked = data.liked === "true";
+    const liked = data.liked === "true";
 
-    const likes = isCurrentlyLiked
-      ? Number(data.postLikes) + 1 // was liked → unlike
-      : Number(data.postLikes) - 1; // was not liked → like
+    const currentPost = await getPost(data.id);
 
     await updatePost(data.id, {
-      postLikes: Math.max(0, likes), // safety net, never go below 0
-      postLiked: isCurrentlyLiked, // flip it
+      postLiked: liked,
+      postLikes: liked
+        ? currentPost.postLikes + 1
+        : Math.max(0, currentPost.postLikes - 1),
     });
 
-    return null; // 👈 return early, don't fall through to the comment logic
+    return null;
   }
 
   // Add bookmark
@@ -244,16 +171,19 @@ export async function action({ request, params }) {
   // Adding a new comment
   const randomImg = `https://i.pravatar.cc/300?img=${Math.floor(Math.random() * 56 + 1)}`;
 
+  // Verified random propaility
+  const verification = function () {
+    return Math.random() > 0.5;
+  };
+
   const newComment = {
     ...data,
     postId: id,
     username: getRandomName(),
     userImg: randomImg,
     createdAt: `${new Date().getMinutes()} minutes ago`,
-    verified: true,
+    verified: verification(),
   };
-
-  // console.log(newComment);
 
   if (!data.comment) return null;
 
@@ -264,3 +194,101 @@ export async function action({ request, params }) {
 }
 
 export default Post;
+
+/*
+        // action
+// export async function action({ request, params }) {
+//   // 0. Get the form data
+//   const formData = await request.formData();
+
+//   // 1. Prepare the data
+//   const data = Object.fromEntries(formData);
+//   const { id } = data;
+
+//   // return null;
+
+//   // Adding a like
+//   if (data.intent === "like") {
+//     const isCurrentlyLiked = data.liked === "true";
+
+//     const likes = isCurrentlyLiked
+//       ? Number(data.postLikes) + 1 // was liked → unlike
+//       : Number(data.postLikes) - 1; // was not liked → like
+
+//     await updatePost(data.id, {
+//       postLikes: Math.max(0, likes), // safety net, never go below 0
+//       postLiked: isCurrentlyLiked, // flip it
+//     });
+
+//     return null; // 👈 return early, don't fall through to the comment logic
+//   }
+
+//   // Add bookmark
+
+//   // Adding a new comment
+//   const randomImg = `https://i.pravatar.cc/300?img=${Math.floor(Math.random() * 56 + 1)}`;
+
+//   const newComment = {
+//     ...data,
+//     postId: id,
+//     username: getRandomName(),
+//     userImg: randomImg,
+//     createdAt: `${new Date().getMinutes()} minutes ago`,
+//     verified: true,
+//   };
+
+//   // console.log(newComment);
+
+//   if (!data.comment) return null;
+
+//   // 2. Send the data to the Api
+//   await addComment(newComment);
+
+//   return null;
+// }
+
+          <likesFetcher.Form method="patch"> 
+          Hidden inputs to collect data 
+           <input type="hidden" name="intent" value="like" />
+          <input type="hidden" name="postLikes" value={postLikes} />
+          <input type="hidden" name="id" value={id} /> 
+           <input type="hidden" name="postLikes" value={postLiked} /> 
+           <input type="hidden" name="liked" value={liked} /> 
+
+           <button
+              type="submit"
+              onClick={() => setLiked((like) => !like)} // toggle likes
+              className="flex items-center justify-center gap-1"
+            >
+              <span className="cursor-pointer">
+                <LuHeart
+                  className={`${(isLiking ? newOptimisticLiked : postLiked) && "fill-red-400 stroke-red-400"}`}
+                />
+              </span>
+              <h5 className="text-xs font-semibold text-gray-900">
+                {(isLiking ? newOptimisticLikesCount : postLikes) > 0 &&
+                  formatNumbers(isLiking ? newOptimisticLikesCount : postLikes)}
+              </h5>
+            </button>
+          </likesFetcher.Form> 
+
+
+           <bookmarkFetcher.Form method="patch">
+            <input type="hidden" name="intent" value="bookmark" />
+            <input type="hidden" name="postBookmarks" value={postBookmarks} />
+            <input type="hidden" name="id" value={id} />
+
+            <button
+              type="submit"
+              className="flex items-center justify-center gap-1"
+            >
+              <span className="cursor-pointer">
+                <LuBookmark className="fill-blue-400 stroke-blue-400" />
+              </span>
+              <h5 className="text-xs font-semibold text-gray-100">
+                {formatNumbers(postBookmarks)}
+              </h5>
+            </button>
+          </bookmarkFetcher.Form>
+
+*/

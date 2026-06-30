@@ -1,6 +1,6 @@
 import { LuBadgeCheck, LuHeart } from "react-icons/lu";
 
-function Comment({ comment }) {
+function Comment({ comment, isLast }) {
   const { username, userImg, comment: text, createdAt, verified } = comment;
 
   return (
@@ -14,7 +14,7 @@ function Comment({ comment }) {
             </div>
 
             <div className="flex items-center justify-start gap-1">
-              <h4 className="text-xs font-semibold text-gray-700">
+              <h4 className="text-xs font-semibold text-gray-100">
                 {username}
               </h4>
 
@@ -29,8 +29,10 @@ function Comment({ comment }) {
           </div>
 
           {/* comment content */}
-          <div className="ml-3 border-l border-gray-200 pl-5">
-            <p className="mb-2 text-xs text-gray-600">{text}</p>
+          <div
+            className={`${isLast ? "" : "border-l border-neutral-700 "} ml-3 pb-3 pl-5`}
+          >
+            <p className="mb-2 text-xs text-gray-400">{text}</p>
           </div>
         </div>
 
